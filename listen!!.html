@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Something I wanted to tell you...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Dancing+Script:wght@700&display=swap');
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 10px;
+            margin: 0;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 192, 203, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            color: #ff80ab;
+            font-family: 'Dancing Script', cursive;
+        }
+        p {
+            font-size: 1em;
+            color: #ffcdd2;
+            line-height: 1.6;
+            font-family: 'Comic Neue', cursive;
+        }
+        .play-button {
+            background-color: #ff4081;
+            color: white;
+            font-size: 1.2em;
+            font-family: 'Comic Neue', cursive;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 64, 129, 0.4);
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        .play-button:hover {
+            transform: scale(1.08);
+        }
+        .arrow {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Something I Wanted to Tell You...</h1>
+        
+        <audio id="audioPlayer" class="hidden">
+            <source src="Blue-Yung-Kai.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <button class="play-button" onclick="playAudio()">
+            <span class="arrow">➡️</span> Tap to Play Something Special
+        </button>
+        
+        <p>Hey Sneha,</p>
+        <p>I've been meaning to tell you something for a while now. Every time I see you, I can't help but admire how effortlessly<br>
+            beautiful you are—not just in the way you look, but in the way you carry yourself. Your eyes have this incredible spark,<br>
+            like they hold a thousand stories, and your smile has a way of making everything around you brighter.<br>
+        </p>
+        <p>But beyond all that, what really draws me to you is your presence—the way you make people feel comfortable, the way you<br>
+            speak, and just the kind of person you are. I guess what I'm trying to say is, I really like you, and I'd love to know if<br>
+            you'd ever see me in the same way.
+        </p>
+        <p>No matter what, I just wanted you to know how amazing I think you are.</p>
+        <p>💖 06:12 PM 21-3-25 💖</p>
+    </div>
+    
+    <script>
+        const audio = document.getElementById('audioPlayer');
+        const startTime = 19; // Start at 0:39
+        const endTime = 105;   // End at 1:15
+
+        function playAudio() {
+            audio.currentTime = startTime;
+            audio.play();
+            document.querySelector('.play-button').innerText = "Playing...💖";
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.currentTime >= endTime) {
+                audio.pause();
+                document.querySelector('.play-button').innerText = "Tap to Replay 🎶";
+            }
+        });
+    </script>
+</body>
+</html>
